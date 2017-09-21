@@ -1,0 +1,42 @@
+#root {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.house {
+  position: relative;
+  height: 400px;
+  width: 400px;
+}
+  
+img {
+  position: absolute;
+}
+  
+.roof {
+  left: 0;
+  top: 0;
+}
+
+.chimney {
+  left: 255px;
+}
+  
+.wall {
+  left: 5px;
+  top: 48px;
+}
+ 
+.window {
+  left: 200px;
+  top: 182px;
+}
+
+.door {
+  left: -25px;
+  top: 182px;
+  cursor: pointer;
+}
