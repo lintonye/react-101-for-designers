@@ -34,6 +34,8 @@ const packFruits = () => ['🍉', '🥝', '🍒'];
 
 
 
+
+
 for (let i = 0; i< 10; i++) {
   console.log('blah');
 }
@@ -60,3 +62,16 @@ function packSnack(type) {
     snack = '🥕🍌';
   return snack;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+React.createElement('div', {}, ['Roof']);
