@@ -1,20 +1,54 @@
 import React from 'react';
 import './App.css';
 import Images from './Images';
+import styled from 'styled-components';
+
+// styled-components, npm package... npm install
+
+const HouseDiv = styled.div`
+  position: relative;
+  height: 400px;
+  width: 400px;
+`;
+
+const Img = styled.img`
+  position: absolute;
+`
+
+const RoofImg = Img.extend`
+  left: 0;
+  top: 0;
+`
+
+const WallImg = Img.extend`
+  left: 5px;
+  top: 48px;
+`
+
+const WindowImg = Img.extend`
+  left: 200px;
+  top: 182px;
+`
+
+const DoorImg = Img.extend`
+  left: -25px;
+  top: 182px;
+  cursor: pointer;
+`
 
 const House = () => (
-  <div className="house">
+  <HouseDiv>
     <Roof />
     <Wall />
     <Window />
     <Door />
-  </div>
+  </HouseDiv>
 );
 
-const Roof = () => <img src={Images.roof} className="roof" />;
-const Wall = () => <img src={Images.wall} className="wall" />;
-const Window = () => <img src={Images.window} className="window" />;
-const Door = () => <img src={Images.door_closed} className="door" />;
+const Roof = () => <RoofImg src={Images.roof} />;
+const Wall = () => <WallImg src={Images.wall} />;
+const Window = () => <WindowImg src={Images.window} />;
+const Door = () => <DoorImg src={Images.door_closed} />;
 
 const App = () => <House />;
 
