@@ -36,12 +36,20 @@ const DoorImg = Img.extend`
   cursor: pointer;
 `
 
+const CatImg = Img.extend`
+  width: 130px;
+  height: 100px;
+  left: 190px;
+  top: 270px;
+`;
+
 const House = () => (
   <HouseDiv>
     <Roof />
     <Wall />
     <Window />
-    <Door shape="rectangle" />
+    <Door />
+    <Cat />
   </HouseDiv>
 );
 
@@ -51,6 +59,13 @@ const Roof = () => <RoofImg src={Images.roof} />;
 const Wall = () => <WallImg src={Images.wall} />;
 const Window = () => <WindowImg src={Images.window} />;
 //const Door = () => <DoorImg src={Images.door_closed} />;
+
+const Cat = (props) => {
+  const img = props.status === 'standing'
+    ? Images.cat_standing
+    : Images.cat_sleeping;
+  return <CatImg src={img} />;
+}
 
 // class component
 // inherit properties, methods
