@@ -43,15 +43,29 @@ const CatImg = Img.extend`
   top: 270px;
 `;
 
-const House = () => (
-  <HouseDiv>
-    <Roof />
-    <Wall />
-    <Window />
-    <Door />
-    <Cat />
-  </HouseDiv>
-);
+class House extends React.Component {
+  constructor() {
+    super();
+    this.state = { isDoorOpen: false };
+  }
+  render() {
+    const handleDoorClick = () => {
+      if (this.state.isDoorOpen)
+        this.setState({ isDoorOpen: false });
+      else
+        this.setState({ isDoorOpen: true });
+    }
+    return (
+      <HouseDiv>
+        <Roof />
+        <Wall />
+        <Window />
+        <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick}/>
+        <Cat status={ this.state.isDoorOpen ? 'standing' : 'sleeping' } />
+      </HouseDiv>
+    )
+  }
+}
 
 // functional component
 // stateless
@@ -67,30 +81,12 @@ const Cat = (props) => {
   return <CatImg src={img} />;
 }
 
-// class component
-// inherit properties, methods
-// stateful
-// state
-class Door extends React.Component {
-  constructor() {
-    super();
-    this.state = { isOpen: false };
-  }
-  
-  render() {
-    const handleClick = () => {
-      if (this.state.isOpen)
-        this.setState({ isOpen: false });
-      else
-        this.setState({ isOpen: true });
-    }
-
-    const img = this.state.isOpen
-      ? Images.door_open 
-      : Images.door_closed;
-    return <DoorImg src={img} onClick={ handleClick }/>;
-  }
-}
+const Door = (props) => {
+  const img = props.isOpen
+    ? Images.door_open
+    : Images.door_closed;
+  return <DoorImg src={img} onClick={props.onClick} />;
+};
 
 const App = () => <House />;
 
