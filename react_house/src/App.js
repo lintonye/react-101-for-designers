@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Images from './Images';
 import styled from 'styled-components';
+import { StaggeredMotion, spring } from 'react-motion';
 
 // styled-components, npm package... npm install
 
@@ -88,6 +89,40 @@ const Door = (props) => {
   return <DoorImg src={img} onClick={props.onClick} />;
 };
 
-const App = () => <House />;
+const Container = styled.div`
+  background: cyan;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  padding: 20px;
+`;
+
+const BlockDiv = styled.div`
+  width: 100px;
+  height: 30px;
+  background: blue;
+  padding: 5px;
+  margin: 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Block = ({id}) => (
+  <BlockDiv>{id}</BlockDiv>
+);
+
+const Animations = () => (
+  <Container>
+    {
+      Array(8).fill(0).map((_, idx) => <Block id={idx+1} key={idx} />)
+    }
+  </Container>
+);
+
+const App = () => <Animations />;
 
 export default App;
