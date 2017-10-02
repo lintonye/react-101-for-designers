@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Images from './Images';
 import styled from 'styled-components';
-import { StaggeredMotion, spring } from 'react-motion';
+import { StaggeredMotion, spring, presets } from 'react-motion';
 
 // styled-components, npm package... npm install
 
@@ -61,8 +61,8 @@ class House extends React.Component {
         <Roof />
         <Wall />
         <Window />
-        <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick}/>
-        <Cat status={ this.state.isDoorOpen ? 'standing' : 'sleeping' } />
+        <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick} />
+        <Cat status={this.state.isDoorOpen ? 'standing' : 'sleeping'} />
       </HouseDiv>
     )
   }
@@ -111,16 +111,31 @@ const BlockDiv = styled.div`
   align-items: center;
 `;
 
-const Block = ({id}) => (
-  <BlockDiv>{id}</BlockDiv>
+const Block = ({ id, style }) => (
+  <BlockDiv style={style}>{id}</BlockDiv>
 );
 
 const Animations = () => (
-  <Container>
+  <StaggeredMotion
+    defaultStyles={Array(8).fill(0).map((_, i) => ({ y: -80, opacity: 0 }))}
+    styles={prevStyles => prevStyles.map((_, i) => {
+      return i === 0
+        ? { y: spring(0), opacity: spring(1) }
+        : { y: spring(prevStyles[i - 1].y, presets.stiff),  opacity: spring(prevStyles[i-1].opacity, presets.stiff)}
+    })}
+  >
     {
-      Array(8).fill(0).map((_, idx) => <Block id={idx+1} key={idx} />)
+      styles => (
+        <Container>
+          {
+            styles.map((style, i) => 
+              <Block id={i + 1} key={i} 
+                style={{ transform: `translateY(${style.y}px)`, opacity: style.opacity}}/>)
+          }
+        </Container>
+      )
     }
-  </Container>
+  </StaggeredMotion>
 );
 
 const App = () => <Animations />;
