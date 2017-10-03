@@ -1,12 +1,19 @@
 import React from 'react';
 import './App.css';
-import Images from './Images';
 
 const House = () => (
   <div>
-    House!
+    <Roof />
+    <Wall />
+    <Window />
+    <Door />
   </div>
 );
+
+const Roof = () => <div>Roof</div>;
+const Wall = () => <div>Wall</div>;
+const Window = () => <div>Window</div>;
+const Door = () => <div>Door</div>;
 
 const App = () => <House />;
 
