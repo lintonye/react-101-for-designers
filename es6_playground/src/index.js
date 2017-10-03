@@ -1,3 +1,6 @@
-// Insert your code in this file
+// JS function
+function fruits() {
+  return ['🍎', '🍐', '🥝', '🍉'];
+}
 
-console.log('Hello world!👍');
+
