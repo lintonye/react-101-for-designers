@@ -26,8 +26,9 @@ const WallImg = Img.extend`
 `
 
 const WindowImg = Img.extend`
-  left: 200px;
+  left: 160px;
   top: 182px;
+  cursor: pointer;
 `
 
 const DoorImg = Img.extend`
@@ -43,53 +44,55 @@ const CatImg = Img.extend`
   top: 270px;
 `;
 
-const House = () => (
-  <HouseDiv>
-    <Roof />
-    <Wall />
-    <Window />
-    <Door />
-    <Cat />
-  </HouseDiv>
-);
+class House extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isWindowOpen: false, isDoorOpen: false };
+  }
+  render() {
+    const handleDoorClick = () => {
+      if (this.state.isDoorOpen)
+        this.setState({ isDoorOpen: false });
+      else
+        this.setState({ isDoorOpen: true });
+    };
+    const handleWindowClick = () => {
+      if (this.state.isWindowOpen)
+        this.setState({ isWindowOpen: false });
+      else
+        this.setState({ isWindowOpen: true });
+    };
+    const catStatus = this.state.isWindowOpen || this.state.isDoorOpen
+      ? 'standing'
+      : 'sleeping';
+    return (
+      <HouseDiv>
+        <Roof />
+        <Wall />
+        <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick} />
+        <Window isOpen={this.state.isWindowOpen} onClick={handleWindowClick} />
+        <Cat status={catStatus} />
+      </HouseDiv>
+    );
+  }
+}
 
 // functional component
 // stateless
 const Roof = () => <RoofImg src={Images.roof} />;
 const Wall = () => <WallImg src={Images.wall} />;
-const Window = () => <WindowImg src={Images.window} />;
-//const Door = () => <DoorImg src={Images.door_closed} />;
+const Window = ({ isOpen, onClick }) =>
+  <WindowImg src={isOpen ? Images.window_open : Images.window_closed}
+    onClick={onClick} />;
+const Door = ({ isOpen, onClick }) =>
+  <DoorImg src={isOpen ? Images.door_open : Images.door_closed}
+    onClick={onClick} />;
 
 const Cat = (props) => {
   const img = props.status === 'standing'
     ? Images.cat_standing
     : Images.cat_sleeping;
   return <CatImg src={img} />;
-}
-
-// class component
-// inherit properties, methods
-// stateful
-// state
-class Door extends React.Component {
-  constructor() {
-    super();
-    this.state = { isOpen: false };
-  }
-  
-  render() {
-    const handleClick = () => {
-      if (this.state.isOpen)
-        this.setState({ isOpen: false });
-      else
-        this.setState({ isOpen: true });
-    }
-
-    const img = this.state.isOpen
-      ? Images.door_open 
-      : Images.door_closed;
-    return <DoorImg src={img} onClick={ handleClick }/>;
-  }
 }
 
 const App = () => <House />;
