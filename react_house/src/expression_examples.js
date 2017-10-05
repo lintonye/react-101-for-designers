@@ -74,4 +74,4 @@ function packSnack(type) {
 
 
 
-React.createElement('div', {}, ['Roof']);
+React.createElement('div', {}, 'Roof');
