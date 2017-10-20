@@ -18,6 +18,7 @@ const Img = styled.img`
 const RoofImg = Img.extend`
   left: 0;
   top: 0;
+  background: ${ props => props.color };
 `
 
 const WallImg = Img.extend`
@@ -38,14 +39,14 @@ const DoorImg = Img.extend`
 
 const House = () => (
   <HouseDiv>
-    <Roof />
+    <Roof color="tomato" />
     <Wall />
     <Window />
     <Door />
   </HouseDiv>
 );
 
-const Roof = () => <RoofImg src={Images.roof} />;
+const Roof = (props) => <RoofImg src={Images.roof} color={props.color}/>;
 const Wall = () => <WallImg src={Images.wall} />;
 const Window = () => <WindowImg src={Images.window} />;
 const Door = () => <DoorImg src={Images.door_closed} />;
