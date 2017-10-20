@@ -49,7 +49,19 @@ const House = () => (
 const Roof = (props) => <RoofImg src={Images.roof} color={props.color}/>;
 const Wall = () => <WallImg src={Images.wall} />;
 const Window = () => <WindowImg src={Images.window} />;
-const Door = () => <DoorImg src={Images.door_closed} />;
+// const Door = () => <DoorImg src={Images.door_closed} />;
+
+class Door extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isOpen: false };
+  }
+  render() {
+    return <DoorImg src={this.state.isOpen 
+      ? Images.door_open
+      : Images.door_closed} />;
+  }
+}
 
 const App = () => <House />;
 
