@@ -49,7 +49,7 @@ const House = () => (
     <Wall />
     <Window />
     <Door />
-    <Cat />
+    <Cat status="sleeping" />
   </HouseDiv>
 );
 
@@ -61,7 +61,7 @@ const Window = () => <WindowImg src={Images.window} />;
 //const Door = () => <DoorImg src={Images.door_closed} />;
 
 const Cat = (props) => {
-  const img = props.status === 'standing'
+  const img = props.status === 'awake'
     ? Images.cat_standing
     : Images.cat_sleeping;
   return <CatImg src={img} />;
