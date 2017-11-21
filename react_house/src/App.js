@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Images from './Images';
 import styled from 'styled-components';
+import { Motion, spring, presets } from 'react-motion';
 
 // styled-components, npm package... npm install
 
@@ -41,7 +42,7 @@ const CatImg = Img.extend`
   height: 100px;
   left: 190px;
   top: 270px;
-  transition: opacity 200ms;
+  transition: opacity 500ms;
   &:hover {
     opacity: 0;
   }
@@ -64,8 +65,17 @@ class House extends React.Component {
         <Roof />
         <Wall />
         <Window />
-        <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick}/>
-        <Cat status={ this.state.isDoorOpen ? 'standing' : 'sleeping' } />
+        <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick} />
+        <Motion 
+          defaultStyle={{ y: 0 }}
+          style={{ y: spring(this.state.isDoorOpen ? -350 : 0, presets.gentle) }}>
+          {
+            style =>
+              <Cat status={this.state.isDoorOpen ? 'standing' : 'sleeping'}
+                style={{ transform: `translateY(${style.y}px)` }}
+              />
+          }
+        </Motion>
       </HouseDiv>
     )
   }
@@ -82,7 +92,7 @@ const Cat = (props) => {
   const img = props.status === 'standing'
     ? Images.cat_standing
     : Images.cat_sleeping;
-  return <CatImg src={img} />;
+  return <CatImg src={img} style={props.style} />;
 }
 
 const Door = (props) => {
