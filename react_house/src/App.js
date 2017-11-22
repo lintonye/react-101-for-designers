@@ -68,7 +68,7 @@ class House extends React.Component {
         <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick} />
         <Motion 
           defaultStyle={{ y: 0 }}
-          style={{ y: spring(this.state.isDoorOpen ? -350 : 0, presets.gentle) }}>
+          style={{ y: spring(this.state.isDoorOpen ? -355 : 0, presets.gentle) }}>
           {
             style =>
               <Cat status={this.state.isDoorOpen ? 'standing' : 'sleeping'}
