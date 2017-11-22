@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Images from './Images';
 import styled from 'styled-components';
-
+import { TransitionMotion, spring, stripStyle } from 'react-motion';
 // styled-components, npm package... npm install
 
 const HouseDiv = styled.div`
@@ -51,6 +51,10 @@ class House extends React.Component {
       cats: [],
     };
   }
+  willEnter(styleThatEntered) {
+    const style = stripStyle(styleThatEntered);
+    return { x: style.x - 100, y: style.y };
+  }
   render() {
     const handleDoorClick = () => {
       if (this.state.isDoorOpen)
@@ -67,9 +71,20 @@ class House extends React.Component {
         <Wall />
         <Window />
         <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick} />
-        {this.state.cats.map(({ x, y }, i) =>
-          <Cat status={this.state.isDoorOpen ? 'standing' : 'sleeping'}
-            x={x} y={y} key={i} />)}
+        <TransitionMotion
+          willEnter={this.willEnter}
+          styles={this.state.cats.map(({ x, y }, i) => ({key: i, style: { x: spring(x), y }}))}>
+          {
+            styles =>
+              <div>
+                {
+                  styles.map(( style, i) =>
+                    <Cat status={this.state.isDoorOpen ? 'standing' : 'sleeping'}
+                      x={style.style.x} y={style.style.y} key={i} />)
+                }
+              </div>
+          }
+        </TransitionMotion>
       </HouseDiv>
     )
   }
