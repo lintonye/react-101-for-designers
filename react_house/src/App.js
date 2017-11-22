@@ -39,29 +39,37 @@ const DoorImg = Img.extend`
 const CatImg = Img.extend`
   width: 130px;
   height: 100px;
-  left: 240px;
-  top: 270px;
+  left: ${props => props.x}px;
+  top: ${props => props.y}px;
 `;
 
 class House extends React.Component {
   constructor() {
     super();
-    this.state = { isDoorOpen: false };
+    this.state = {
+      isDoorOpen: false,
+      cats: [],
+    };
   }
   render() {
     const handleDoorClick = () => {
       if (this.state.isDoorOpen)
         this.setState({ isDoorOpen: false });
-      else
-        this.setState({ isDoorOpen: true });
+      else {
+        const x = Math.cos(Math.random() * Math.PI) * 80 + 240;
+        const y = Math.random() * 80 + 270;
+        this.setState({ isDoorOpen: true, cats: [...this.state.cats, { x, y }] });
+      }
     }
     return (
       <HouseDiv>
         <Roof />
         <Wall />
         <Window />
-        <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick}/>
-        <Cat status={ this.state.isDoorOpen ? 'standing' : 'sleeping' } />
+        <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick} />
+        {this.state.cats.map(({ x, y }, i) =>
+          <Cat status={this.state.isDoorOpen ? 'standing' : 'sleeping'}
+            x={x} y={y} key={i} />)}
       </HouseDiv>
     )
   }
@@ -78,7 +86,7 @@ const Cat = (props) => {
   const img = props.status === 'standing'
     ? Images.cat_standing
     : Images.cat_sleeping;
-  return <CatImg src={img} />;
+  return <CatImg {...props} src={img} />;
 }
 
 const Door = (props) => {
