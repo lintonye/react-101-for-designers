@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import Images from './Images';
 import styled from 'styled-components';
-
-// styled-components, npm package... npm install
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import './cat.css';
 
 const HouseDiv = styled.div`
   position: relative;
@@ -67,9 +67,14 @@ class House extends React.Component {
         <Wall />
         <Window />
         <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick} />
-        {this.state.cats.map(({ x, y }, i) =>
-          <Cat status={this.state.isDoorOpen ? 'standing' : 'sleeping'}
-            x={x} y={y} key={i} />)}
+        <TransitionGroup>
+          {this.state.cats.map(({ x, y }, i) =>
+            <CSSTransition timeout={500} classNames="move" key={i} >
+              <Cat status={this.state.isDoorOpen ? 'standing' : 'sleeping'}
+                x={x} y={y} />
+            </CSSTransition>
+          )}
+        </TransitionGroup>
       </HouseDiv>
     )
   }
