@@ -39,7 +39,7 @@ const DoorImg = Img.extend`
 const CatImg = Img.extend`
   width: 130px;
   height: 100px;
-  left: 190px;
+  left: 240px;
   top: 270px;
 `;
 
