@@ -3,8 +3,6 @@ import './App.css';
 import Images from './Images';
 import styled from 'styled-components';
 
-// styled-components, npm package... npm install
-
 const HouseDiv = styled.div`
   position: relative;
   height: 400px;
