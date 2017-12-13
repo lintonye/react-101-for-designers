@@ -1,5 +1,5 @@
-// JS function
-function fruits() {
+// function
+const fruits = function() {
   return ['🍎', '🍐', '🥝', '🍉'];
 }
 
