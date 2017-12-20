@@ -1,3 +1,6 @@
 // Insert your code in this file
 
-console.log('Hello world!👍');
+import snacks, { makeJuice, APPLE } from './fruits';
+
+
+console.log(makeJuice(APPLE));
