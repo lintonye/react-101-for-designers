@@ -38,14 +38,16 @@ const DoorImg = Img.extend`
 
 const House = () => (
   <HouseDiv>
-    <Roof />
+    <Roof color="lightsalmon" hasSolarPanel={true}/>
     <Wall />
     <Window />
     <Door />
   </HouseDiv>
 );
 
-const Roof = () => <RoofImg src={Images.roof} />;
+// const props = { color: "lightsalmon", hasSolarPanel: true }
+// Roof(props);
+const Roof = (props) => <RoofImg style={{ background: props.color}} src={Images.roof} />;
 const Wall = () => <WallImg src={Images.wall} />;
 const Window = () => <WindowImg src={Images.window} />;
 const Door = () => <DoorImg src={Images.door_closed} />;
