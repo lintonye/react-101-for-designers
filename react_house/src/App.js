@@ -18,7 +18,7 @@ const Img = styled.img`
 const RoofImg = Img.extend`
   left: 0;
   top: 0;
-  background: ${ props => props.color };
+  background: ${ props => props.color};
 `
 
 const WallImg = Img.extend`
@@ -46,7 +46,7 @@ const House = () => (
   </HouseDiv>
 );
 
-const Roof = (props) => <RoofImg src={Images.roof} color={props.color}/>;
+const Roof = (props) => <RoofImg src={Images.roof} color={props.color} />;
 const Wall = () => <WallImg src={Images.wall} />;
 const Window = () => <WindowImg src={Images.window} />;
 // const Door = () => <DoorImg src={Images.door_closed} />;
@@ -54,12 +54,18 @@ const Window = () => <WindowImg src={Images.window} />;
 class Door extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isOpen: false };
+    this.state = { isOpen: false, locked: false };
+  }
+  handleClick = () => {
+    if (this.state.isOpen)
+      this.setState({ isOpen: false });
+    else
+      this.setState({ isOpen: true });
   }
   render() {
-    return <DoorImg src={this.state.isOpen 
+    return <DoorImg src={this.state.isOpen
       ? Images.door_open
-      : Images.door_closed} />;
+      : Images.door_closed} onClick={this.handleClick} />;
   }
 }
 
