@@ -56,10 +56,10 @@ class House extends React.Component {
   }
   render() {
     return (
-      <HouseDiv onClick={this.handleClick}>
+      <HouseDiv>
         <Roof />
         <Wall />
-        <Door isOpen={ this.state.doorOpen }/>
+        <Door isOpen={ this.state.doorOpen }  onKnock={this.handleClick}/>
         <Window />
         <Cat status={this.state.doorOpen ? 'awake' : 'sleeping'} />
       </HouseDiv>
@@ -87,23 +87,11 @@ const Cat = (props) => {
 // stateful
 // state
 class Door extends React.Component {
-  constructor() {
-    super();
-    this.state = { isOpen: false };
-  }
-
   render() {
-    const handleClick = () => {
-      if (this.state.isOpen)
-        this.setState({ isOpen: false });
-      else
-        this.setState({ isOpen: true });
-    }
-
     const img = this.props.isOpen
       ? Images.door_open
       : Images.door_closed;
-    return <DoorImg src={img} onClick={handleClick} />;
+    return <DoorImg src={img} onClick={this.props.onKnock} />;
   }
 }
 
