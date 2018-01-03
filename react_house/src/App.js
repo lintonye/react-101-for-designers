@@ -43,15 +43,29 @@ const CatImg = Img.extend`
   top: 270px;
 `;
 
-const House = () => (
-  <HouseDiv>
-    <Roof />
-    <Wall />
-    <Window />
-    <Door />
-    <Cat status="sleeping" />
-  </HouseDiv>
-);
+class House extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { doorOpen: false };
+  }
+  handleClick = () => {
+    if (this.state.doorOpen)
+      this.setState({ doorOpen: false });
+    else
+      this.setState({ doorOpen: true });
+  }
+  render() {
+    return (
+      <HouseDiv onClick={this.handleClick}>
+        <Roof />
+        <Wall />
+        <Door isOpen={this.state.doorOpen}/>
+        <Window />
+        <Cat status={ this.state.doorOpen ? 'awake' : 'sleeping' } />
+      </HouseDiv>
+    );
+  }
+}
 
 // functional component
 // stateless
@@ -85,7 +99,7 @@ class Door extends React.Component {
         this.setState({ isOpen: true });
     }
 
-    const img = this.state.isOpen
+    const img = this.props.isOpen
       ? Images.door_open 
       : Images.door_closed;
     return <DoorImg src={img} onClick={ handleClick }/>;
