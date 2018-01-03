@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Images from './Images';
 import styled from 'styled-components';
@@ -18,7 +18,7 @@ const Img = styled.img`
 const RoofImg = Img.extend`
   left: 0;
   top: 0;
-  background: ${ props => props.color };
+  background: ${ props => props.color};
 `
 
 const WallImg = Img.extend`
@@ -46,10 +46,19 @@ const House = () => (
   </HouseDiv>
 );
 
-const Roof = (props) => <RoofImg src={Images.roof} color={props.color}/>;
+const Roof = (props) => <RoofImg src={Images.roof} color={props.color} />;
 const Wall = () => <WallImg src={Images.wall} />;
 const Window = () => <WindowImg src={Images.window} />;
-const Door = () => <DoorImg src={Images.door_closed} />;
+
+class Door extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isOpen: false };
+  }
+  render() {
+    return <DoorImg src={this.state.isOpen ? Images.door_open : Images.door_closed} />;
+  }
+}
 
 const App = () => <House />;
 
