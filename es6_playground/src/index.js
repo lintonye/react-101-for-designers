@@ -1,12 +1,30 @@
-let dog1 = {
-  name: 'Max',
-  breed: 'Bulldog'
-};
+// inheritance
+class Pet {
+  // TODO common things
+  constructor(name, breed) {
+    this.name = name;
+    this.breed = breed;
+  }
+  // method
+  intro() {
+    console.log('My name is ' + this.name + " I'm a " + this.breed);
+  }
+}
 
-let dog2 = {
-  name: 'Bella',
-  breed: 'Poodle'
-};
+class Cat extends Pet {
+  meow() {
+    console.log(this.name + ': meow');
+  }
+}
 
-console.log('dog1: ', dog1.name, dog1.breed);
-console.log('dog2: ', dog2.name, dog2.breed);
+class Dog extends Pet {
+
+}
+let dog1 = new Dog('Max', 'Bulldog');
+let dog2 = new Dog('Bella', 'Poodle');
+let cat1 = new Cat('Cathy', 'Persian cat');
+
+dog1.intro();
+dog2.intro();
+cat1.intro();
+cat1.meow();
