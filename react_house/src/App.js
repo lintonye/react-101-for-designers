@@ -69,7 +69,7 @@ class House extends React.Component {
         <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick} />
         <TransitionGroup>
           {this.state.cats.map(({ x, y }, i) =>
-            <CSSTransition timeout={500} classNames="move" key={i} >
+            <CSSTransition classNames="slide">
               <Cat status={this.state.isDoorOpen ? 'standing' : 'sleeping'}
                 x={x} y={y} />
             </CSSTransition>

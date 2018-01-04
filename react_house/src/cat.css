@@ -1,17 +1,8 @@
-.move-enter {
+.slide-enter {
   transform: translateX(200px);
 }
 
-.move-enter.move-enter-active {
+.slide-enter-active {
   transform: translateX(0);
   transition: transform 500ms ease-in;
-}
-
-.move-exit {
-  opacity: 1;
-}
-
-.move-exit.move-exit-active {
-  opacity: 0.01;
-  transition: opacity 800ms ease-in;
 }
