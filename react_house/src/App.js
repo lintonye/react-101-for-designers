@@ -65,7 +65,8 @@ class Door extends React.Component {
   render() {
     return <DoorImg src={this.state.isOpen
       ? Images.door_open
-      : Images.door_closed} onClick={this.handleClick} />;
+      : Images.door_closed}
+      onClick={this.handleClick} />;
   }
 }
 
