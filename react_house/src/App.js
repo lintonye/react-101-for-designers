@@ -39,6 +39,10 @@ const CatImg = Img.extend`
   height: 100px;
   left: 240px;
   top: 270px;
+  transition: opacity 500ms;
+  :hover {
+    opacity: 0;
+  }
 `;
 
 class House extends React.Component {
