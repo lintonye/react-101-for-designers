@@ -1,0 +1,8 @@
+.slide-enter {
+  transform: translateX(200px);
+}
+
+.slide-enter-active {
+  transform: translateX(0);
+  transition: transform 500ms;
+}
