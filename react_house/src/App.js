@@ -29,7 +29,7 @@ Hint 2:
   React.createElement(MyComp, 
     {}, 
     React.createElement('div', {}, 'Hello'),
-    React.createElement(Child2, {}, null)
+    React.createElement(Child2)
   );
 
 */
