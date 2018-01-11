@@ -21,8 +21,8 @@ const App = () => (
 
 const House = (props) => (
   <div className='house'>
-    <Roof color='white' />
-    <Wall />
+    <Roof color={props.roofColor} />
+    <Wall number={props.number} />
     <Window />
     <Door />
   </div>
@@ -32,16 +32,21 @@ const Roof = (props) => (
   <img src={Images.roof} className="roof" style={{ background: props.color }} />
 );
 
-const Wall = () => (
+const Wall = (props) => (
   <div>
     <img src={Images.wall} className="wall" />
-    <div className="house-number">205</div>
+    <div className="house-number">{props.number}</div>
   </div>
 );
 
 const Window = () => <img src={Images.window} className="window" />;
 const Door = () => <img src={Images.door_closed} className='door' />;
 
-const App = () => <House />;
+const App = () => (
+  <div>
+    <House roofColor='blue' number='123' />
+    <House roofColor='red' number='321' />
+  </div>
+);
 
 export default App;
