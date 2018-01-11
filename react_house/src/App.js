@@ -24,10 +24,23 @@ Hint: For the horizontal separator line between the houses, use `<hr />`.
 */
 const House = () => (
   <div>
-    House!
+    <Roof />
+    <Wall />
+    <Window />
+    <Door />
   </div>
 );
 
-const App = () => <House />;
+const Roof = () => <div>roof</div>;
+const Wall = () => <div>wall</div>;
+const Window = () => <div>window</div>;
+const Door = () => <div>door</div>;
+
+const App = () => 
+  <div>
+    <House />
+    <hr />
+    <House />
+  </div>
 
 export default App;
