@@ -4,5 +4,14 @@
 
 .slide-enter-active {
   transform: translateX(0);
+  transition: transform 500ms ease-in-out;
+}
+
+.slide-exit {
+  transform: translateX(0);
+}
+
+.slide-exit-active {
+  transform: translateX(-400px);
   transition: transform 500ms ease-in;
 }
