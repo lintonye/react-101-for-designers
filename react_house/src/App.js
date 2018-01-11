@@ -3,6 +3,18 @@ import './App.css';
 import Images from './Images';
 import styled from 'styled-components';
 
+/*
+ Exercises:
+
+  - When the mouse hovers on the cat, make her shrink in size while fading out.
+    when the mouse is away from the cat, make her grow back while fading in.
+
+  Hint:
+  1. Use CSS transform to scale an element
+  2. How to make CSS transition to track multiple properties?
+  2. How to make sure the cat stays on the group while she's changing size?
+*/
+
 const HouseDiv = styled.div`
   position: relative;
   height: 400px;
