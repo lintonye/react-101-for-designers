@@ -5,20 +5,13 @@ Exercises:
 
  */
 
-function pi() {
-  return 3.14159;
-}
+const pi = () => 3.14159;
 
-function square(n) {
-  return n * n;
-}
+const square = n => n * n;
 
-function add(a, b) {
-  var result = a + b;
-  return result;
-}
+const add = (a, b) => a + b;
 
-const yawn = function() {
+const yawn = () => {
   console.log('yawn.');
   console.log('yawn...');
   console.log('zzzzzzZZZ');
