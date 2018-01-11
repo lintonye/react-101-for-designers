@@ -4,7 +4,12 @@ import Images from './Images';
 import styled from 'styled-components';
 import { Motion, spring, presets } from 'react-motion';
 
-// styled-components, npm package... npm install
+/*
+  Exercises:
+  - An attempt was made in House component to rotate the cat when she jumps up. 
+    However, it doesn't work. Fix the bug.
+
+*/
 
 const HouseDiv = styled.div`
   position: relative;
@@ -66,13 +71,16 @@ class House extends React.Component {
         <Wall />
         <Window />
         <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick} />
-        <Motion 
-          defaultStyle={{ deltaY: 0 }}
-          style={{ deltaY: spring(this.state.isDoorOpen ? -355 : 0, presets.gentle) }}>
+        <Motion
+          defaultStyle={{ deltaY: 0, rotation: 0 }}
+          style={{
+            deltaY: spring(this.state.isDoorOpen ? -355 : 0, presets.gentle),
+            rotation: this.state.isDoorOpen ? 0 : 360
+          }}>
           {
             animatingStyle =>
               <Cat status={this.state.isDoorOpen ? 'standing' : 'sleeping'}
-                style={{ transform: `translateY(${animatingStyle.deltaY}px)` }}
+                style={{ transform: `translateY(${animatingStyle.deltaY}px) rotate(${animatingStyle.rotation}deg)` }}
               />
           }
         </Motion>
