@@ -2,44 +2,46 @@ import React from 'react';
 import './App.css';
 import Images from './Images';
 
-/**
- 
+/*
 Exercises:
 
-- Convert all JSX tags in this file into JavaScript code.
+1. In App.js, make the house number on the wall configurable, i.e. 
+   you can make the house number "123" with: <House number='123'/>
 
-Hint 1: 
+2. Can you make two houses with different roof colors and house numbers?
 
-  <MyComp />
-
-  ==> 
-
-  React.createElement(MyComp);
-
-
-Hint 2:
-
-  <MyComp>
-    <div>Hello</div>
-    <Child2 />
-  </MyComp>
-
-  ==>
-
-  React.createElement(MyComp, 
-    {}, 
-    React.createElement('div', {}, 'Hello'),
-    React.createElement(Child2)
-  );
+const App = () => (
+  <div>
+    <House roofColor='blue' number='123'/>
+    <House roofColor='red' number='321' />
+  </div>
+);
 
 */
-const House = () => React.createElement('h2', {}, 'This is House');
 
-const houses = [
-  React.createElement(House), 
-  React.createElement(House)
-]
+const House = ({ number }) => (
+  <div className='house'>
+    <Roof color='white' />
+    <Wall />
+    <Window />
+    <Door />
+  </div>
+);
 
-const App = () => React.createElement('div', {}, houses);
+const Roof = ({ color }) => (
+  <img src={Images.roof} className="roof" style={{ background: color }} />
+);
+
+const Wall = () => (
+  <div>
+    <img src={Images.wall} className="wall" />
+    <div className="house-number">205</div>
+  </div>
+);
+
+const Window = () => <img src={Images.window} className="window" />;
+const Door = () => <img src={Images.door_closed} className='door' />;
+
+const App = () => <House />;
 
 export default App;
