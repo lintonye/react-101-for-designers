@@ -1,3 +1,30 @@
-// Insert your code in this file
+/*
 
-console.log('Hello world!👍');
+Exercises:
+ 1. Convert the functions below to arrow functions (be as concise as possible). Play with the code in the project.
+
+ */
+
+function pi() {
+  return 3.14159;
+}
+
+function square(n) {
+  return n * n;
+}
+
+function add(a, b) {
+  var result = a + b;
+  return result;
+}
+
+const yawn = function() {
+  console.log('yawn.');
+  console.log('yawn...');
+  console.log('zzzzzzZZZ');
+}
+
+console.log('pi = '+ pi());
+console.log('square 4 = ' + square(4));
+console.log('add(4, 5) = ' + add(4, 5));
+console.log(yawn());
