@@ -5,6 +5,17 @@ import styled from 'styled-components';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './cat.css';
 
+/*
+  
+  Now that clicking a cat would remove her from the scene immediately.
+
+  Exercises
+  - Animate the depature of the cats
+
+  Hint: Use "exit" and "exit-active" classes
+
+*/
+
 const HouseDiv = styled.div`
   position: relative;
   height: 400px;
@@ -41,6 +52,7 @@ const CatImg = Img.extend`
   height: 100px;
   left: ${props => props.x}px;
   top: ${props => props.y}px;
+  cursor: pointer;
 `;
 
 class House extends React.Component {
@@ -61,6 +73,13 @@ class House extends React.Component {
         this.setState({ isDoorOpen: true, cats: [...this.state.cats, { x, y }] });
       }
     }
+    const handleCatClick = idx => () => {
+      this.setState(prevState => {
+        const prevCats = prevState.cats;
+        prevCats.splice(idx, 1);
+        return { ...prevState, cats: [...prevCats] };
+      });
+    }
     return (
       <HouseDiv>
         <Roof />
@@ -69,9 +88,9 @@ class House extends React.Component {
         <Door isOpen={this.state.isDoorOpen} onClick={handleDoorClick} />
         <TransitionGroup>
           {this.state.cats.map(({ x, y }, i) =>
-            <CSSTransition classNames="slide">
+            <CSSTransition classNames="slide" key={i} timeout={500}>
               <Cat status={this.state.isDoorOpen ? 'standing' : 'sleeping'}
-                x={x} y={y} />
+                x={x} y={y} onClick={handleCatClick(i)} />
             </CSSTransition>
           )}
         </TransitionGroup>
