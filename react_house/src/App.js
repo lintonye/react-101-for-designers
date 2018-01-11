@@ -6,41 +6,43 @@ import Images from './Images';
  
 Exercises:
 
-1. Add roof, wall, window and door to the house (all plain text, e.g. `<div>window</div>`)
-2. Display two houses, one after another. The expected output is:
+- Convert all JSX tags in this file into JavaScript code.
 
-roof
-wall
-window
-door
-----------
-roof
-wall
-window
-door
+Hint 1: 
 
-Hint: For the horizontal separator line between the houses, use `<hr />`.
+  <MyComp />
+
+  ==> 
+
+  React.createElement(MyComp);
+
+
+Hint 2:
+
+  <MyComp>
+    <div>Hello</div>
+    <Child2 />
+  </MyComp>
+
+  ==>
+
+  React.createElement(MyComp, 
+    {}, 
+    React.createElement('div', {}, 'Hello'),
+    React.createElement(Child2, {}, null)
+  );
 
 */
-const House = () => (
-  <div>
-    <Roof />
-    <Wall />
-    <Window />
-    <Door />
-  </div>
-);
+const House = () => <h2>This is House!</h2>;
 
-const Roof = () => <div>roof</div>;
-const Wall = () => <div>wall</div>;
-const Window = () => <div>window</div>;
-const Door = () => <div>door</div>;
+const houses = [
+  <House />, 
+  <House />
+]
 
 const App = () => 
   <div>
-    <House />
-    <hr />
-    <House />
+    { houses }
   </div>
 
 export default App;
