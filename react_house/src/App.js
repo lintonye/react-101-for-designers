@@ -9,6 +9,10 @@ import { Motion, spring, presets } from 'react-motion';
   - An attempt was made in House component to rotate the cat when she jumps up. 
     However, it doesn't work. Fix the bug.
 
+  Solution: 
+    The function "spring" is missing when setting up the motion style.
+    Without calling the "spring" function, "rotation" will either be 0 or 360.
+    Its value won't be animated.
 */
 
 const HouseDiv = styled.div`
@@ -75,7 +79,7 @@ class House extends React.Component {
           defaultStyle={{ deltaY: 0, rotation: 0 }}
           style={{
             deltaY: spring(this.state.isDoorOpen ? -355 : 0, presets.gentle),
-            rotation: this.state.isDoorOpen ? 0 : 360
+            rotation: spring(this.state.isDoorOpen ? 0 : 360)
           }}>
           {
             animatingStyle =>
