@@ -16,7 +16,7 @@ Exercises:
 class House extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { doorOpen: false };
+    this.state = { doorOpen: false, windowOpen: false };
   }
   handleDoorClick = () => {
     if (this.state.doorOpen === true) {
@@ -25,14 +25,22 @@ class House extends React.Component {
       this.setState({ doorOpen: true });
     }
   };
+  handleWindowClick = () => {
+    if (this.state.windowOpen === true) {
+      this.setState({ windowOpen: false });
+    } else {
+      this.setState({ windowOpen: true });
+    }
+  };
   render() {
-    const catStatus = this.state.doorOpen ? 'awake' : 'sleeping';
+    const catAwake = this.state.doorOpen || this.state.windowOpen;
+    const catStatus = catAwake ? 'awake' : 'sleeping';
     return (
       <div className="house">
         <Roof color="brown" />
         <Wall />
         <Door onClick={this.handleDoorClick} isOpen={this.state.doorOpen} />
-        <Window />
+        <Window onClick={this.handleWindowClick} isOpen={this.state.windowOpen} />
         <Cat status={catStatus} />
       </div>
     );
@@ -50,7 +58,7 @@ const Wall = () => <img src={Images.wall} className="wall" />
 
 const Window = (props) =>
   <img src={props.isOpen ? Images.window_open : Images.window_closed}
-    className="window" />
+    className="window" onClick={props.onClick} />
 
 const Door = (props) =>
   <img src={props.isOpen ? Images.door_open : Images.door_closed}
