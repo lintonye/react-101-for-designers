@@ -33,16 +33,13 @@ Hint 2:
   );
 
 */
-const House = () => <h2>This is House!</h2>;
+const House = () => React.createElement('h2', {}, 'This is House');
 
 const houses = [
-  <House />, 
-  <House />
+  React.createElement(House), 
+  React.createElement(House)
 ]
 
-const App = () => 
-  <div>
-    { houses }
-  </div>
+const App = () => React.createElement('div', {}, houses);
 
 export default App;
