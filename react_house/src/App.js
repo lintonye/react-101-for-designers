@@ -19,7 +19,7 @@ const App = () => (
 
 */
 
-const House = ({ number }) => (
+const House = (props) => (
   <div className='house'>
     <Roof color='white' />
     <Wall />
@@ -28,8 +28,8 @@ const House = ({ number }) => (
   </div>
 );
 
-const Roof = ({ color }) => (
-  <img src={Images.roof} className="roof" style={{ background: color }} />
+const Roof = (props) => (
+  <img src={Images.roof} className="roof" style={{ background: props.color }} />
 );
 
 const Wall = () => (
