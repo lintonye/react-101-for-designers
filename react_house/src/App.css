@@ -31,23 +31,13 @@ img {
 }
  
 .window {
-  left: 200px;
+  left: 150px;
   top: 182px;
+  cursor: pointer;
 }
 
 .door {
   left: -25px;
   top: 182px;
   cursor: pointer;
-}
-
-.house-number {
-  position: absolute;
-  left: 170px;
-  top: 120px;
-  font-family: cursive;
-  font-size: 2em;
-  font-weight: bold;
-  color: white;
-  text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8); 
 }
