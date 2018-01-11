@@ -22,7 +22,27 @@ const Roof = (props) => (
   <img src={Images.roof} className="roof" style={{ background: props.color }} />
 );
 const Wall = () => <img src={Images.wall} className="wall" />;
-const Window = () => <img src={Images.window_closed} className="window" />;
+
+class Window extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isOpen: false };
+  }
+  render() {
+    const handleClick = () => {
+      if (this.state.isOpen) {
+        this.setState({ isOpen: false });
+      } else {
+        this.setState({ isOpen: true });
+      }
+    }
+    let image = Images.window_open;
+    if (this.state.isOpen === false) {
+      image = Images.window_closed;
+    }
+    return <img src={image} className="window" onClick={handleClick} />;
+  }
+}
 
 class Door extends React.Component {
   constructor(props) {
@@ -44,7 +64,6 @@ class Door extends React.Component {
     return <img src={image} className='door' onClick={handleClick} />;
   }
 }
-
 
 const App = () => <House />;
 
