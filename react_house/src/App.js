@@ -51,9 +51,11 @@ const CatImg = Img.extend`
   height: 100px;
   left: 240px;
   top: 270px;
-  transition: opacity 500ms;
+  transition: opacity 500ms, transform 500ms;
+  transform-origin: bottom;
   :hover {
     opacity: 0;
+    transform: scale(0);
   }
 `;
 
