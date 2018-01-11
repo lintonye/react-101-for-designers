@@ -17,12 +17,14 @@ Exercises:
   React.createElement(MyComp, { prop1: 21 * 2 });
 
 */
-const House = (props) => 
-  <div>
-    <div>{props.roofColor} roof </div>
-    The rest of the house
-  </div>;
+const House = (props) =>
+  React.createElement(
+    'div',
+    {},
+    React.createElement('div', {}, props.roofColor + ' roof'),
+    'The reset of the house'
+  );
 
-const App = () => <House roofColor="red" />;
+const App = () => React.createElement(House, { roofColor: "red" });
 
 export default App;
