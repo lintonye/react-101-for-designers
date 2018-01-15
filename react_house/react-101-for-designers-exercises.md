@@ -53,22 +53,22 @@ author:
   - A. DOM lives in web browsers.
   - B. DOM is a tree.
   - C. The browser renders web pages according to the content available in the DOM.
-  - D. DOM stands for Document Observer Mode.
+  - - D. DOM stands for Document Observer Mode.
 
 - Which of the following is FALSE about Reactive UI?
   - A. All UI elements built with React are reactive.
   - B. A developer just needs to specify what's needed instead of how to update the DOM.
   - C. React automatically updates the DOM when the data change.
-  - D. When a UI element is reactive, a developer doesn't need to worry about its look and feel.
+  - - D. When a UI element is reactive, a developer doesn't need to worry about its look and feel.
 
 - Which of the following is FALSE about Virtual DOM?
   - A. Virtual DOM is called "virtual" because it's not the real DOM in the browser.
   - B. React uses virtual DOM to speed up rendering.
-  - C. Virtual DOM replaces DOM in the browser to make the rendering faster.
+  - - C. Virtual DOM replaces DOM in the browser to make the rendering faster.
   - D. Virtual DOM is much faster to update than DOM.
 
 - Which of the following is FALSE about components?
-  - A. A React program usually consists of 1 to 10 components working together.
+  - - A. A React program usually consists of 1 to 10 components working together.
   - B. Components are similar to symbols in Sketch.
   - C. Components are made up of smaller components.
   - D. A program can usually be broken up into components in different ways.
@@ -78,12 +78,12 @@ author:
 - Which of the following is FALSE about props?
   - A. <Roof color="blue" />: here, `color` is a prop
   - B. The value of a prop does not change throughout the entire lifespan of a component.
-  - C. The props of a component can be accessed from the component itself as well as the component's children.
+  - - C. The props of a component can be accessed from the component itself as well as the component's children.
   - D. Props can be used in placeholders in a component's definition, for example, `<div>{props.color} roof</div>`
 
 - Which of the following is FALSE about state?
   - A. state can be used to represent user input.
-  - B. A component's state can only be accessed within the component itself as well as its parent component.
+  - - B. A component's state can only be accessed within the component itself as well as its parent component.
   - C. The state value of a component can be changed by some external events.
   - D. It's possible to write a component that doesn't have any state.
 
@@ -108,7 +108,7 @@ Questions:
 
 - Which of the following is a VALID React component?
   - A. `const House = <div>House</div>`
-  - B. `const House = () => <div />`
+  - - B. `const House = () => <div />`
   - C. `const House = (<div>House</div>)`
   - D. `const House = "House"`
 
