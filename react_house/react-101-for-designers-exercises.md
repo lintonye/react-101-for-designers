@@ -584,17 +584,17 @@ bella.say();
 {% endhighlight %}
 
 ### 21. State and Class components
-- Which of the following are true about class components:
-  - (A) A class component is defined as an ES6 class.
-  - (B) Class components are stateful.
+- Which of the following are true about class components (choose all that apply)?
+  - - (A) A class component is defined as an ES6 class.
+  - - (B) Class components are stateful.
   - (C) To use a class component inside another component, we need to create an instance using the `new` keyword.
   - (D) Class components cannot have props.
-  - (E) The state of a class component can be accessed within a method using `this.state`.
-- What are the differences between class components and functional components?
+  - - (E) The state of a class component can be accessed within a method using `this.state`.
+- What are the differences between class components and functional components (choose all that apply)?
   - (A) Class components are stateless, whereas functional components are stateful.
-  - (B) The props of a class component can be accessed within a method using `this.props`; whereas the first parameter of a functional component is its props.
+  - - (B) The props of a class component can be accessed within a method using `this.props`; whereas the first parameter of a functional component is its props.
   - (C) For a class component, props can also be retrieved as the first parameter of the render method, e.g. `render(props)`.
-  - (D) The state of a class component can change during its lifetime; whereas functional components don't have state.
+  - - (D) The state of a class component can change during its lifetime; whereas functional components don't have state.
 - Convert the `Roof` component to a class component which properly handles the `color` prop.
 
 --- 
