@@ -367,27 +367,27 @@ const House = (props) =>
 ### 11. Import / export
 - Which of the following is correct for importing React into the current file:
   - A. `import React from './react'`
-  - B. `import React from 'react'`
+  - - B. `import React from 'react'`
   - C. `import React from 'React'`
   - D. `import React from React`
 
-- How to import and use the following module?
+- How to import the following module?
   ```jsx
   // Drinks.js
   export default drinks = () => ['🍺', '🍹', '🍸', '☕️'];
   ```
-  - A. `import drinks from './Drinks'`
+  - - A. `import drinks from './Drinks'`
   - B. `import { drinks } from './Drinks'`
   - C. `import drinks from './Drinks/drinks`
   - D. `import drinks from ./Drinks`
 
-- How to import and use the following module?
+- How to import the following module?
   ```jsx
   // Drink.js
   export const BEER = '🍺';
   export const COFFEE = '️️☕️';
   ```
-  - A. `import { BEER, COFFEE } from './Drinks'`
+  - - A. `import { BEER, COFFEE } from './Drinks'`
   - B. `import BEER, COFFEE from './Drinks'`
   - C. `import { BEER, COFFEE } from ./Drinks`
   - D. `import BEER, COFFEE from ./Drinks`
@@ -399,7 +399,7 @@ const House = (props) =>
   ```
   - A. The import is actually optional, but it's usually included to indicate that it's a React file.
   - B. React is needed implicitly by the browser to render the components.
-  - C. JSX tags, after converted to JavaScript code, contain references to React.
+  - - C. JSX tags, after converted to JavaScript code, contain references to React.
 
 ### 12. Import project resources
 - What is the output of the following code?
@@ -414,12 +414,12 @@ const House = (props) =>
   - A. "./fruits.json"
   - B. A path similar to "./fruits0e219424afg.json"
   - C. A JavaScript object
-  - D. ["🍉", "🍌", "🍓", "🍍", "🍒", "🍇"]
+  - - D. ["🍉", "🍌", "🍓", "🍍", "🍒", "🍇"]
 
 ### 13. Style components with CSS
 - Which of the following correctly styles the img with the CSS class "roof"?
   - A. `const Roof = () => <img class="roof" src={Images.roof} />`
-  - B. `const Roof = () => <img className="roof" src={Images.roof} />`
+  - - B. `const Roof = () => <img className="roof" src={Images.roof} />`
   - C. `const Roof = () => <img cssClass="roof" src={Images.roof} />`
   - D. `const Roof = () => <img css="roof" src={Images.roof} />`
   
@@ -428,13 +428,13 @@ const House = (props) =>
   - A. `const Window = () => <img style="background: red;" src={Images.window} />`
   - B. `const Window = () => <img style="background: red" src={Images.window} />`
   - C. `const Window = () => <img style={background: 'red'} src={Images.window} />`
-  - D. `const Window = () => <img style={{background: 'red'}} src={Images.window} />`
+  - - D. `const Window = () => <img style={{background: 'red'}} src={Images.window} />`
 
 - Which of the following correctly sets the left margin of the div?
   - A. `const Door = () => <div style="margin-left: 50px">door</div>`
   - B. `const Door = () => <div style={{margin-left: 50px}}>door</div>`
   - C. `const Door = () => <div style={{marginLeft: 50px}}>door</div>`
-  - D. `const Door = () => <div style={{marginLeft: 50}}>door</div>`
+  - - D. `const Door = () => <div style={{marginLeft: 50}}>door</div>`
 
 ### 15. CSS-in-JS
 ### 16. styled-components
