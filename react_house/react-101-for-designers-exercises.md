@@ -249,7 +249,7 @@ console.log(yawn());
 - Which of the following about JSX is FALSE?
   - A. JSX is an extension to JavaScript.
   - B. JSX code is eventually converted to JavaScript code.
-  - C. When writing a React app, we'd need to write a function to convert JSX code into JavaScript.
+  - - C. When writing a React app, we'd need to write a function to convert JSX code into JavaScript.
   - D. In a JSX file, we can write tags that look like HTML code.
 
 - Convert the following JSX code into JavaScript code:
@@ -299,7 +299,7 @@ const houses = [
 
 ### 9. JS Expression
 - Which of the following is NOT an expression?
-  - A. `const pi = 3.14`
+  - - A. `const pi = 3.14`
   - B. `""`
   - C. `<div>Window</div>`
   - D. `n => n * n`
@@ -308,8 +308,8 @@ const houses = [
 - Which of the following is INVALID?
   - A. `const House = () => <div>{7*6}</div>`
   - B. `const House = (props) => <div>{props.color}</div>`
-  - C. `const House = (props) => <div style={color: props.color}>House</div>`
-  - D. `const House = (props) => <{props.tag}>House</{props.tag}>`
+  - C. `const House = (props) => <div style={{color: props.color}}>House</div>`
+  - - D. `const House = (props) => <{props.tag}>House</{props.tag}>`
   - E. `const House = () => <div>{""}</div>`
 
 - What HTML does the following component render to?
@@ -334,7 +334,7 @@ const Lines = () => {
       <div>Line { 1 + 1 }</div>
     </div>
     ```
-  - C. 
+  - - C. 
     ```html
     <div>
       <div>Line 1</div>
