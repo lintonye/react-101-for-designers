@@ -18,9 +18,12 @@ const House = () => (
   </div>
 );
 
-const Roof = (props) => (
-  <img src={Images.roof} className="roof" style={{ background: props.color }} />
-);
+class Roof extends React.Component {
+  render() {
+    return <img src={Images.roof} className="roof" style={{ background: this.props.color }} />
+  }
+} 
+
 const Wall = () => <img src={Images.wall} className="wall" />;
 const Window = () => <img src={Images.window_closed} className="window" />;
 
