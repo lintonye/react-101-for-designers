@@ -5,7 +5,7 @@ import Images from './Images';
 /*
 
 Exercises:
-  - Make the window open/close when the user clicks on it
+  - Convert the `Roof` component to a class component which properly handles the `color` prop.
 
 */
 
