@@ -615,12 +615,12 @@ TODO
 - Which of the following does NOT happen after the state of a component changes?
   - A. The render method will be called.
   - B. The DOM will be updated if React finds a difference before and after the state change.
-  - C. The component will be recreated based on the updated state.
+  - - C. The component will be recreated based on the updated state.
   - D. The DOM may not change at all.
 
 - Why can't we initiate a component's state in its render() method?
   - A. It'd be too late. The state is needed before the render method is called.
-  - B. It'd overwrite any state changes because the render method is called whenever the state is changed.
+  - - B. It'd overwrite any state changes because the render method is called whenever the state is changed.
   - C. In fact we can initiate the state in the render method.
   - D. The render method would crash.
 
@@ -630,7 +630,7 @@ TODO
 - Which of the following is NOT the use case of props?
   - A. Passing data from one component to another
   - B. Passing an event handler from one component to another
-  - C. Handling user input
+  - - C. Handling user input
   - D. Making a component configurable
 
 Preparation:
