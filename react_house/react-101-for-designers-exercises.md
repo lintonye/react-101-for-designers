@@ -474,7 +474,7 @@ TODO
 
 ### 18. Props and styled-components
 - How to use a prop in a styled component?
-  - A. const RoofImg = styled.img`background: ${props => props.color};`
+  - - A. const RoofImg = styled.img`background: ${props => props.color};`
   - B. const RoofImg = styled.img`background: {props => props.color};`
   - C. const RoofImg = styled.img`background: ${props.color};`
   - D. const RoofImg = styled.img`background: ${color};`
@@ -483,13 +483,13 @@ TODO
   - A. It's an expression.
   - B. It's an arrow function with one parameter "props".
   - C. It will be called by the code in styled-components.
-  - D. Its value is either "red", "blue" or any other color value.
+  - - D. Its value is either "red", "blue" or any other color value.
 
 ### 19. React developer tool
 
 ### 20. ES6 Class
 
-- Which of the following are valid components?
+- Which of the following are valid components (choose all that are valid)?
 {% highlight html %}
 // (A)
 const HouseA = <div>House</div>;
@@ -500,7 +500,7 @@ const HouseB = <div />;
 // (C)
 const HouseC = () => <div><Roof><Window></div>;
 
-// (D)
+// - (D)
 const HouseD = () => <div>House</div>;
 
 // (E)
@@ -509,7 +509,7 @@ const HouseE = () => (
   <Window />
 );
 
-// (F)
+// - (F)
 const houseF = () => 
   <div>
     <Roof />
@@ -519,30 +519,22 @@ const houseF = () =>
 {% endhighlight %}
 
 
-- Which of the following are true about ES6 classes?
-  - (A) By convention, the name of a class starts with a capital letter.
-  - (B) Class is a new feature in ES6.
+- Which of the following are true about ES6 classes (choose all that apply)?
+  - - (A) By convention, the name of a class starts with a capital letter.
+  - - (B) Class is a new feature in ES6.
   - (C) A class can be used in the same way as an object.
   - (D) Class can be used to style an HTML element.
 - Suppose we have a class named `Fruit`, how to create an object from it?
   - (A) `const fruit = Fruit('🍑')`
   - (B) `const fruit = Fruit 🥝`
-  - (C) `const fruit = new Fruit('🍇')`
+  - - (C) `const fruit = new Fruit('🍇')`
   - (D) `const fruit = Fruit.create('🍉')`
-- Which of the following are true about methods?
-  - (A) A method is defined in a class.
+- Which of the following are true about methods (choose all that apply)?
+  - - (A) A method is defined in a class.
   - (B) A method cannot have any parameters.
-  - (C) `this` can be used inside a method to refer to the current object.
+  - - (C) `this` can be used inside a method to refer to the current object.
   - (D) A method must include a `return` statement.
-  - (E) A method can invoke another method defined in the same class with the `this` keyword. For example, `this.anotherMethod();`.
-- Why does the name of a class start with a capital letter?
-- Complete the "TODO" item in the code below:
-{% highlight jsx %}
-// TODO: define class Parrot here
-
-const brad = new Parrot('Brad');
-brad.say();
-{% endhighlight %}
+  - - (E) A method can invoke another method defined in the same class with the `this` keyword. For example, `this.anotherMethod();`.
 - In the code above, how can you simplify the definition of `Parrot` if you have a `Pet` class:
 {% highlight jsx %}
 class Pet {
@@ -551,6 +543,19 @@ class Pet {
   }
   say() { console.log(this.name + ': Hello!'); }
 }
+{% endhighlight %}
+  - A. object Parrot extends Pet { } 
+  - B. class Parrot inherits Pet { }
+  - - C. class Parrot extends Pet { }
+  - D. const parrot1 = new Parrot(Pet);
+
+- Why does the name of a class start with a capital letter?
+- Complete the "TODO" item in the code below:
+{% highlight jsx %}
+// TODO: define class Parrot here
+
+const brad = new Parrot('Brad');
+brad.say();
 {% endhighlight %}
 
 - Complete the "TODO" items in the code below so that it prints the following in the console:
