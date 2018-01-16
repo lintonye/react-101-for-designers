@@ -439,7 +439,7 @@ const House = (props) =>
 ### 15. CSS-in-JS
 ### 16. styled-components
 - Which of the following is the correct usage of styled-components?
-  - A. const RoofDiv = styled.div` left: 20px; `
+  - - A. const RoofDiv = styled.div` left: 20px; `
   - B. const RoofDiv = styled.div` left: 20 `
   - C. const RoofDiv = styled.div` left: "20px" `
   - D. const RoofDiv = styled.div" left: 20 "
@@ -447,7 +447,7 @@ const House = (props) =>
 - Which of the following is FALSE about styled-components?
   - A. styled-components allows the use of real CSS syntax in JavaScript code.
   - B. styled-components is one of the CSS-in-JS libraries.
-  - C. styled-components still requires setting either "style" or "className" attributes of an element.
+  - - C. styled-components still requires setting either "style" or "className" attributes of an element.
   - D. With styled-components, we need to create a separate component that includes CSS properties.
   
 
