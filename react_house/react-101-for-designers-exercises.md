@@ -150,7 +150,7 @@ if (name === 'Tom') {
 {% endhighlight %}
   - A. No outuput
   - B. 25
-  - C. An error
+  - - C. An error
   - D. age = 25
 
 If you are not sure, paste the code in Chrome console and hit Enter key.
@@ -168,7 +168,7 @@ console.log(fruit());
   - A. function () { return '🍉' }
   - B. No output
   - C. An error
-  - D. 🍉
+  - - D. 🍉
 
 - What is the output of the code below?
 
@@ -180,7 +180,7 @@ const packLunch = (packMeal, packSnack) => [packMeal(), packSnack()];
 
 console.log(packLunch(burger, fruit));
 ```
-  - A. ['🍔', '🍉']
+  - - A. ['🍔', '🍉']
   - B. No output
   - C. An error
   - D. packLunch(🍔, 🍉)
@@ -195,7 +195,7 @@ const packLunch = (packMeal, packSnack) => [packMeal(), packSnack()];
 
 console.log(packLunch('🍔', fruit));
 ```
-  - A. ['🍔', '🍉']
+  - - A. ['🍔', '🍉']
   - B. No output
   - C. An error
   - D. packLunch(🍔, 🍉)  
@@ -205,7 +205,7 @@ console.log(packLunch('🍔', fruit));
 ```jsx
 const Window = () => <div>Window</div>;
 ```
-  - A. It's an HTML element mixed in JavaScript code.
+  - - A. It's an HTML element mixed in JavaScript code.
   - B. It defines a React component "Window".
   - C. It defines a constant whose value is an arrow function.
 
