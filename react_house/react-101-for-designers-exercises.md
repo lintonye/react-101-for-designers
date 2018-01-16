@@ -647,13 +647,13 @@ Exercises:
   - A. It creates an animation that gradually changes the "opacity" CSS property of the element.
   - B. The animation is only effective when the "opacity" CSS property is updated.
   - C. The duration of the animation is 100 milliseconds.
-  - D. It sets the opacity of the element to 0 over 100 milliseconds.
+  - - D. It sets the opacity of the element to 0 over 100 milliseconds.
 
 ### 27. Animations - Ninja cat and react-motion
 - Which of the following is FALSE about "spring(0)": 
   - A. It creates a spring whose destination value is 0.
   - B. During the animation, the value will gradually change from the current value to 0.
-  - C. The rate of the value change
+  - - C. The value changes evenly during the animation.
 
   ```jsx
   <Motion style={{ opacity: spring(0) }}>
