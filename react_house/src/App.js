@@ -10,7 +10,7 @@ import './cat.css';
   Now that clicking a cat would remove her from the scene immediately.
 
   Exercises
-  - Animate the depature of the cats
+  - Animate the departure of the cats
 
   Hint: Use "exit" and "exit-active" classes
 
