@@ -2,13 +2,6 @@ import React from 'react';
 import './App.css';
 import Images from './Images';
 
-/*
-
-Exercises:
-  - Make the window open/close when the user clicks on it
-
-*/
-
 const House = () => (
   <div className="house">
     <Roof color="brown" />
@@ -31,7 +24,7 @@ class Door extends React.Component {
   }
   render() {
     const handleClick = () => {
-      if (this.state.isOpen) {
+      if (this.state.isOpen === false) {
         this.setState({ isOpen: false });
       } else {
         this.setState({ isOpen: true });
